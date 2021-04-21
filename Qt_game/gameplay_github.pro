@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+                multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,12 +28,20 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     mybtn.cpp \
-    choosewin.cpp
+    choosewin.cpp \
+    mainplaywin.cpp \
+    mycoin.cpp \
+    mylabel.cpp \
+    caption.cpp
 
 HEADERS += \
         mainwindow.h \
     mybtn.h \
-    choosewin.h
+    choosewin.h \
+    mainplaywin.h \
+    mycoin.h \
+    mylabel.h \
+    caption.h
 
 FORMS += \
         mainwindow.ui

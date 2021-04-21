@@ -8,7 +8,7 @@
      this ->back = back;
 
      QPixmap pix;
-     bool flag=
+     bool flag;
      flag = pix.load(enter);
 
      //判断是否 图片加载错误
@@ -18,7 +18,7 @@
      }
 
      //按钮大小 固定
-     this ->setFixedSize(pix.width(), this ->height());
+     this ->setFixedSize(pix.width(), pix.height());
 
      //设置 按钮 的风格
      this ->setStyleSheet("QPushButton{border:0px;}");
@@ -74,3 +74,31 @@ void mybtn::down() {
    an ->start();
 }
  
+
+//点下鼠标时 图片被改变
+
+void mybtn::mousePressEvent(QMouseEvent *e) {
+    QPixmap pix;
+    bool flag =  pix.load(this ->back);
+
+
+    //如果 back 存在 那么将切换按钮上的图片
+        if (flag) {
+            //改变图标
+            this ->setIcon(QIcon(this ->back));
+        }
+
+
+        QPushButton::mousePressEvent(e);
+}
+//放开 鼠标时 图片返回原来的样子
+
+void mybtn::mouseReleaseEvent(QMouseEvent *e) {
+    QPixmap pix;
+    bool flag = pix.load(this ->enter);
+
+    if (flag) {
+        this ->setIcon(QIcon(this->enter));
+    }
+    QPushButton::mouseReleaseEvent(e);
+}

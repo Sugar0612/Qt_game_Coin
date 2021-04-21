@@ -18,5 +18,9 @@
         <file>coinfiles/OtherSceneBg.png</file>
         <file>coinfiles/PlayLevelSceneBg.png</file>
         <file>coinfiles/Title.png</file>
+        <file>coinfiles/back.wav</file>
+        <file>coinfiles/seccess.wav</file>
+        <file>coinfiles/start.wav</file>
+        <file>coinfiles/coinChange.wav</file>
     </qresource>
 </RCC>

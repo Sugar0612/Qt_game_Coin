@@ -7,6 +7,9 @@
 #include<QWidget>
 #include<QDebug>
 #include<QTimer>
+#include<QFileDialog>
+#include<QFile>
+#include<QString>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,6 +23,16 @@ MainWindow::MainWindow(QWidget *parent) :
         this -> close();
     });
 
+    //创建音效
+    QSound* s = new QSound(":/coinfiles/start.wav");
+
+    //菜单说明
+    connect(ui ->caption, &QAction::triggered, [=] () {
+        cap = new caption();
+        cap ->resize(400, 650);
+        cap ->show();
+    });
+
     //标题
     this ->setWindowTitle("coinGames");
 
@@ -29,20 +42,28 @@ MainWindow::MainWindow(QWidget *parent) :
     //设置 开始按钮图标
     mybtn * starebtn = new mybtn(":/coinfiles/MenuSceneStartButton.png");
     starebtn ->setParent(this);
-    starebtn ->move(140, 250);
+    starebtn ->move(150, this ->height() - starebtn->height() * 2 );
 
 
     //点击按钮跳转 窗口 到选关窗口
     connect(starebtn,&mybtn::clicked,[=] () {
         starebtn->uper();
+        s ->play();
         starebtn->down();
-
         //延时进入 选关界面
         QTimer::singleShot(500,this, [=] () {
-            win = new chooseWin;
+            win = new chooseWin();
             this ->hide();
             win -> setFixedSize(400, 650);
-            win->show();
+            win->show();                      
+
+            //接收 由choosewindow 发送过来的信号 实现 开始窗口重现, 选择窗口关闭
+            connect(win, &chooseWin::backwindow, [=] () {
+                QTimer ::singleShot(200, this, [=] () {
+                    win -> hide();
+                    this -> show();
+                });
+            });
         });
     });
 }

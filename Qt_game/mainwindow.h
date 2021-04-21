@@ -1,7 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
+#include"caption.h"
 #include"choosewin.h"
+#include<QSound>
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +19,9 @@ public:
 
     //创建选择 关卡
     chooseWin * win = NULL;
+
+    //关于窗口
+    caption* cap = nullptr;
 
 private:
     Ui::MainWindow *ui;
