@@ -4,6 +4,8 @@
 #include"caption.h"
 #include"choosewin.h"
 #include<QSound>
+#include<QVector>
+
 namespace Ui {
 class MainWindow;
 }
@@ -23,6 +25,8 @@ public:
     //关于窗口
     caption* cap = nullptr;
 
+
+   int size = 0;  // 过了几关
 private:
     Ui::MainWindow *ui;
 };

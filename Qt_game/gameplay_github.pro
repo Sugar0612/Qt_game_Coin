@@ -40,11 +40,13 @@ HEADERS += \
     choosewin.h \
     mainplaywin.h \
     mycoin.h \
-    mylabel.h \
-    caption.h
+    caption.h\
+    mylabel.h
 
 FORMS += \
         mainwindow.ui
 
 RESOURCES += \
     coin.qrc
+
+CONFIG += resources_big

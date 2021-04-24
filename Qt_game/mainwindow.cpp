@@ -26,6 +26,10 @@ MainWindow::MainWindow(QWidget *parent) :
     //创建音效
     QSound* s = new QSound(":/coinfiles/start.wav");
 
+    //背景音效
+    QSound* wel = new QSound(":/coinfiles/wel.wav");
+    wel ->play();
+
     //菜单说明
     connect(ui ->caption, &QAction::triggered, [=] () {
         cap = new caption();
@@ -48,18 +52,22 @@ MainWindow::MainWindow(QWidget *parent) :
     //点击按钮跳转 窗口 到选关窗口
     connect(starebtn,&mybtn::clicked,[=] () {
         starebtn->uper();
+        wel ->stop();
         s ->play();
         starebtn->down();
         //延时进入 选关界面
         QTimer::singleShot(500,this, [=] () {
             win = new chooseWin();
+            win ->capcity = size;
             this ->hide();
             win -> setFixedSize(400, 650);
             win->show();                      
 
             //接收 由choosewindow 发送过来的信号 实现 开始窗口重现, 选择窗口关闭
             connect(win, &chooseWin::backwindow, [=] () {
+                wel ->play();
                 QTimer ::singleShot(200, this, [=] () {
+                    size = win ->capcity;
                     win -> hide();
                     this -> show();
                 });

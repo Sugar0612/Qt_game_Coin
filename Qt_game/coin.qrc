@@ -22,5 +22,13 @@
         <file>coinfiles/seccess.wav</file>
         <file>coinfiles/start.wav</file>
         <file>coinfiles/coinChange.wav</file>
+        <file>coinfiles/fail.png</file>
+        <file>coinfiles/rebegin_1.png</file>
+        <file>coinfiles/rebegin_2.png</file>
+        <file>coinfiles/next_1.png</file>
+        <file>coinfiles/next_2.png</file>
+        <file>coinfiles/boo.wav</file>
+        <file>coinfiles/play.wav</file>
+        <file>coinfiles/wel.wav</file>
     </qresource>
 </RCC>
