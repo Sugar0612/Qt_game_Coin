@@ -5,7 +5,7 @@
    想体验的 请下载tang_sugar.exe 文件
 
 #游戏场景
-# ![1](image/1.png) # ![2](image/2.png) # ![3](image/3.png) # ![4](image/4.png) # ![5](image/5.png)
+# ![1](image/1.png) # ![2](image/2.png)  ![3](image/3.png)  ![4](image/4.png) ![5](image/5.png)
 
 # 4月25日
 # 正式版 2.0:
